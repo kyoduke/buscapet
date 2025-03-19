@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: buscapet_database
+    env_file:
+      - './env_files/.env'
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
+
+    networks:
+      - buscapet_net
+
+volumes:
+  pg_data:
+    driver: local
+
+networks:
+  buscapet_net:
+    driver: bridge
