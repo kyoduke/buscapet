@@ -12,3 +12,6 @@ wheels/
 
 .sqlite3
 .idea
+
+# Node
+node_modules/
