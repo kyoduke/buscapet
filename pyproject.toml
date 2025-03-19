@@ -1,0 +1,16 @@
+[project]
+name = "buscapet"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django>=5.1.7",
+    "psycopg2-binary>=2.9.10",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "isort>=6.0.1",
+]
