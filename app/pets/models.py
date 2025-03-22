@@ -18,34 +18,25 @@ class LostPet(models.Model):
         LOST = 0, _("Lost")
         FOUND = 1, _("Found")
 
-    status = models.SmallIntegerField(choices=PetStatus, default=PetStatus.LOST)
+    status = models.SmallIntegerField(choices=PetStatus, default=PetStatus.LOST, verbose_name=_("register"))
 
-    name = models.CharField(max_length=100, null=True, default=_("Unknown"))
+    name = models.CharField(max_length=100, null=True, default=_("Unknown"), verbose_name=_("name"))
     owner = models.ForeignKey(
-        "users.User", on_delete=models.PROTECT, related_name="pets", null=True
+        "users.User", on_delete=models.PROTECT, related_name="pets", null=True, verbose_name=_("owner")
     )
-    species = models.SmallIntegerField(choices=PetSpecies, default=PetSpecies.OTHER)
-    predominant_color = models.CharField(max_length=50, null=True)
-    gender = models.SmallIntegerField(choices=PetGender, default=PetGender.UNKNOWN)
+    species = models.SmallIntegerField(choices=PetSpecies, default=PetSpecies.OTHER, verbose_name=_("species"))
+    predominant_color = models.CharField(max_length=50, null=True, verbose_name=_("predominant color"))
+    gender = models.SmallIntegerField(choices=PetGender, default=PetGender.UNKNOWN, verbose_name=_("gender"))
+
+    description = models.TextField(null=True, verbose_name=_("description"))
+
+    address = models.CharField(max_length=255, verbose_name=_("address"))
+    state = models.CharField(max_length=64, verbose_name=_("state"))
+    city = models.CharField(max_length=128, verbose_name=_("city"))
 
     created_by = models.ForeignKey(
         "users.User", on_delete=models.PROTECT, related_name="created_pets"
     )
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    deleted_at = models.DateTimeField(null=True, editable=False)
-
-
-class LastSeen(models.Model):
-    pet = models.OneToOneField(
-        "pets.LostPet", on_delete=models.CASCADE, related_name="last_seen"
-    )
-    description = models.TextField(null=True)
-
-    location = models.CharField(max_length=255)
-    state = models.CharField(max_length=64)
-    city = models.CharField(max_length=64)
-
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(null=True, editable=False)

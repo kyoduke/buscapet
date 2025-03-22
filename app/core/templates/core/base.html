@@ -1,11 +1,11 @@
 {% load static %}
 {% load django_htmx %}
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="wireframe">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block page_title %}Attend{% endblock page_title %}</title>
+        <title>{% block page_title %}Buscapet{% endblock page_title %}</title>
         <link rel="stylesheet" href="{% static 'tailwind/style.css' %}">
         <script src="{% static 'core/js/htmx.js' %}" defer></script>
         {% block extra_head %}

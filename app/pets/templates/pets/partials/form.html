@@ -1,0 +1,109 @@
+{% load i18n %}
+{% load widget_tweaks %}
+<form method="post"> {% csrf_token %}
+    <div class="space-y-5 bg-base-100 p-5">
+        {% with WIDGET_ERROR_CLASS='border-2 border-error'%}
+
+            {# Name #}
+            <div class="">
+                <label class="label text-lg mb-1 font-medium" for="{{ form.name.id_for_label }}">{% translate form.name.label %}</label>
+                {% render_field form.name class="input w-full" %}
+                <ul id="{{ form.name.id_for_label }}_error_list" class="{{ form.name.errors|yesno:',hidden,' }}">
+                    {% for error in form.name.errors %}
+                        <li class="text-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {# Status #}
+            <div class="">
+                <label class="label text-lg mb-1 font-medium" for="{{ form.status.id_for_label }}">{% translate form.status.label %}</label>
+                {% render_field form.status class="select w-full" %}
+                <ul id="{{ form.status.id_for_label }}_error_list" class="{{ form.status.errors|yesno:',hidden,' }}">
+                    {% for error in form.status.errors %}
+                        <li class="text-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {# Species #}
+            <div class="">
+                <label class="label text-lg mb-1 font-medium" for="{{ form.species.id_for_label }}">{% translate form.species.label %}</label>
+                {% render_field form.species class="select w-full" %}
+                <ul id="{{ form.species.id_for_label }}_error_list" class="{{ form.species.errors|yesno:',hidden,' }}">
+                    {% for error in form.species.errors %}
+                        <li class="text-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {# Predominant Color #}
+            <div class="">
+                <label class="label text-lg mb-1 font-medium" for="{{ form.predominant_color.id_for_label }}">{% translate form.predominant_color.label %}</label>
+                {% render_field form.predominant_color class="input w-full" %}
+                <ul id="{{ form.predominant_color.id_for_label }}_error_list" class="{{ form.predominant_color.errors|yesno:',hidden,' }}">
+                    {% for error in form.predominant_color.errors %}
+                        <li class="text-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {# Gender #}
+            <div class="">
+                <label class="label text-lg mb-1 font-medium" for="{{ form.gender.id_for_label }}">{% translate form.gender.label %}</label>
+                {% render_field form.gender class="select w-full" %}
+                <ul id="{{ form.gender.id_for_label }}_error_list" class="{{ form.gender.errors|yesno:',hidden,' }}">
+                    {% for error in form.gender.errors %}
+                        <li class="text-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {# Description #}
+            <div class="">
+                <label class="label text-lg mb-1 font-medium" for="{{ form.description.id_for_label }}">{% translate form.description.label %}</label>
+                {% render_field form.description class="textarea w-full" %}
+                <ul id="{{ form.description.id_for_label }}_error_list" class="{{ form.description.errors|yesno:',hidden,' }}">
+                    {% for error in form.description.errors %}
+                        <li class="text-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {# Address #}
+            <div class="">
+                <label class="label text-lg mb-1 font-medium" for="{{ form.address.id_for_label }}">{% translate form.address.label %}</label>
+                {% render_field form.address class="input w-full" %}
+                <ul id="{{ form.address.id_for_label }}_error_list" class="{{ form.address.errors|yesno:',hidden,' }}">
+                    {% for error in form.address.errors %}
+                        <li class="text-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {# State #}
+            <div class="">
+                <label class="label text-lg mb-1 font-medium" for="{{ form.state.id_for_label }}">{% translate form.state.label %}</label>
+                {% render_field form.state class="input w-full" %}
+                <ul id="{{ form.state.id_for_label }}_error_list" class="{{ form.state.errors|yesno:',hidden,' }}">
+                    {% for error in form.state.errors %}
+                        <li class="text-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {# City #}
+            <div class="">
+                <label class="label text-lg mb-1 font-medium" for="{{ form.city.id_for_label }}">{% translate form.city.label %}</label>
+                {% render_field form.city class="input w-full" %}
+                <ul id="{{ form.city.id_for_label }}_error_list" class="{{ form.city.errors|yesno:',hidden,' }}">
+                    {% for error in form.city.errors %}
+                        <li class="text-error">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <button class="btn btn-primary" type="submit">{% translate 'Submit' %}</button>
+
+        {% endwith %}
+    </div>
+</form>
