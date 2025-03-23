@@ -18,7 +18,7 @@ class LostPet(models.Model):
         LOST = 0, _("Lost")
         FOUND = 1, _("Found")
 
-    status = models.SmallIntegerField(choices=PetStatus, default=PetStatus.LOST, verbose_name=_("register"))
+    status = models.SmallIntegerField(choices=PetStatus, default=PetStatus.LOST, verbose_name=_("status"))
 
     name = models.CharField(max_length=100, null=True, default=_("Unknown"), verbose_name=_("name"))
     owner = models.ForeignKey(
@@ -41,6 +41,7 @@ class LostPet(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(null=True, editable=False)
 
+# TODO: IMPORTANT! User identifier like phone number (WhatsApp)
 
 # TODO: Community Found Feedback system. An input with "Has this pet been found?" and a thumbs up or down.
 
