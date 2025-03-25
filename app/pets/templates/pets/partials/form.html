@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load widget_tweaks %}
-<form method="post"> {% csrf_token %}
+
+<form id="form" hx-post="{% url 'pets:pet_create' %}" hx-target="#form" hx-swap="outerHTML"> {% csrf_token %}
     <div class="space-y-8 bg-base-100">
         {% with WIDGET_ERROR_CLASS='border-2 border-error'%}
 

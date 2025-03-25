@@ -4,10 +4,7 @@
 {% block content %}
     <div class="p-5">
         <h1 class="text-5xl text-center mb-10 font-medium">{% translate 'Register Lost Pet' %}</h1>
-        <form method="post">
-            {% include 'pets/partials/form.html' %}
-        </form>
+        {% include 'pets/partials/form.html' %}
     </div>
-
 {% endblock %}
 

@@ -11,4 +11,6 @@ def create_pet(request):
             instance.created_by = request.user
             instance.save()
             return render(request, "pets/pet_list.html")
+        if request.htmx:
+            return render(request, "pets/partials/form.html", {"form": form})
     return render(request, "pets/pet_create.html", {"form": form})
