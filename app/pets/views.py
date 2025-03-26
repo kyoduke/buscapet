@@ -14,3 +14,7 @@ def create_pet(request):
         if request.htmx:
             return render(request, "pets/partials/form.html", {"form": form})
     return render(request, "pets/pet_create.html", {"form": form})
+
+
+def list_pet(request):
+    return render(request, "pets/pet_list.html")

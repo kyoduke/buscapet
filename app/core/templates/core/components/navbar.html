@@ -1,3 +1,17 @@
+{% load i18n %}
 {# TEMPORARY NAVBAR, EDIT WHEN READY #}
-<div class="">
+<div class="navbar bg-base-100 shadow-sm">
+    <div class="navbar-start">
+        <a hx-boost="true" href="{% url 'pets:pet_list' %}" class="btn btn-ghost text-xl">BuscaPet</a>
+    </div>
+    <div class="navbar-center">
+        <a hx-boost="true" href="{% url 'pets:pet_create' %}" class="btn btn-ghost text-lg">{% translate 'Register Pet' %}</a>
+    </div>
+    <div class="navbar-end">
+        {% if user.is_authenticated %}
+            <a hx-boost="true" href="" class="btn btn-ghost text-lg">{% translate 'Logout' %}</a>
+        {% else %}
+            <a hx-boost="true" href="" class="btn btn-ghost text-lg">{% translate 'Login' %}</a>
+        {% endif %}
+    </div>
 </div>

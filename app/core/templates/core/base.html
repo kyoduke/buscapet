@@ -12,7 +12,7 @@
         {% block extra_head %}
         {% endblock extra_head %}
     </head>
-    <body class="">
+    <body class="overflow-y-scroll">
         {% include 'core/components/navbar.html' %}
         {% block content %}
         {% endblock content %}
@@ -22,19 +22,19 @@
             })
         </script>
         {% django_htmx_script %}
-        {% if debug %}
-            <script>
-                if (typeof window.htmx !== "undefined") {
-                    htmx.on("htmx:afterSettle", function(detail) {
-                        if (
-                            typeof window.djdt !== "undefined"
-                            && detail.target instanceof HTMLBodyElement
-                        ) {
-                            djdt.show_toolbar();
-                        }
-                    });
-                }
-            </script>
-        {% endif %}
+{#        {% if debug %}#}
+{#            <script>#}
+{#                if (typeof window.htmx !== "undefined") {#}
+{#                    htmx.on("htmx:afterSettle", function(detail) {#}
+{#                        if (#}
+{#                            typeof window.djdt !== "undefined"#}
+{#                            && detail.target instanceof HTMLBodyElement#}
+{#                        ) {#}
+{#                            djdt.show_toolbar();#}
+{#                        }#}
+{#                    });#}
+{#                }#}
+{#            </script>#}
+{#        {% endif %}#}
     </body>
 </html>
