@@ -5,7 +5,7 @@
         <a hx-boost="true" href="{% url 'pets:pet_list' %}" class="btn btn-ghost text-xl">BuscaPet</a>
     </div>
     <div class="navbar-center">
-        <a hx-boost="true" href="{% url 'pets:pet_create' %}" class="btn btn-ghost text-lg">{% translate 'Register Pet' %}</a>
+        <a hx-boost="true" href="{% url 'pets:pet_create' %}" class="btn btn-ghost text-lg">{% translate 'Report Pet' %}</a>
     </div>
     <div class="navbar-end">
         {% if user.is_authenticated %}
