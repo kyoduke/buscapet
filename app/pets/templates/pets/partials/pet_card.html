@@ -1,0 +1,44 @@
+{# TODO: I just copy pasted, so we need to check all classes again #}
+<div>
+    <a class="flex flex-col items-center rounded-lg bg-neutral-50 shadow-lg w-full max-w-sm mx-auto"
+       href="/pet/116528-cachorra-Lua">
+        <div class="flex w-full items-center rounded-t-lg p-2 justify-between bg-primary text-primary-content">
+            <div class="font-semibold">{{ pet.get_status_display }}</div>
+            <div class="text-xs text-neutral-200">#{{ pet.id }}</div>
+        </div>
+        <div class="relative aspect-square min-h-[250px] w-full">
+            {# TODO: fix image url #}
+            <img alt="Foto de Lua" loading="lazy" decoding="async"
+                 data-nimg="fill"
+                 src="https://viumeupet-dev.s3.sa-east-1.amazonaws.com/petThumbs/da1226d7-8134-420a-887d-89fef090a98c.jpeg"
+                 style="position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: cover; color: transparent;"
+            >
+        </div>
+        <div class="flex w-full flex-col gap-md rounded-b-lg bg-white p-md">
+            <div class="flex w-full flex-col gap-md rounded-b-lg bg-white p-2">
+                <div class="flex items-center gap-md">
+                    <div class="flex-grow truncate text-ellipsis text-lg font-semibold tablet:text-xl">{{ pet.name }}</div>
+                    <div class="flex gap-md">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256"
+                             height="24"
+                             width="24" xmlns="http://www.w3.org/2000/svg">
+                            {% if pet.gender == 2 %}
+                                <path d="M208,96a80,80,0,1,0-88,79.6V200H88a8,8,0,0,0,0,16h32v24a8,8,0,0,0,16,0V216h32a8,8,0,0,0,0-16H136V175.6A80.11,80.11,0,0,0,208,96ZM64,96a64,64,0,1,1,64,64A64.07,64.07,0,0,1,64,96Z"></path>
+                            {% elif pet.gender == 1 %}
+                                <path d="M216,32H168a8,8,0,0,0,0,16h28.69L154.62,90.07a80,80,0,1,0,11.31,11.31L208,59.32V88a8,8,0,0,0,16,0V40A8,8,0,0,0,216,32ZM149.24,197.29a64,64,0,1,1,0-90.53A64.1,64.1,0,0,1,149.24,197.29Z"></path>
+                            {% else %}
+                                {# TODO: Add unknown gender icon #}
+                            {% endif %}
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex justify-between text-xs text-neutral-500 tablet:text-sm">
+                    <p class="truncate pr-lg">
+                        {{ pet.city }}, {{ pet.state }}, Brasil
+                    </p>
+                    <p class="whitespace-nowrap">5 dias atrás</p>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

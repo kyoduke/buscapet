@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from pets.forms import LostPetForm
+from pets.models import LostPet
 
 
 def create_pet(request):
@@ -17,4 +18,6 @@ def create_pet(request):
 
 
 def list_pet(request):
-    return render(request, "pets/pet_list.html")
+    pets = LostPet.objects.all()
+    context = { "pets": pets}
+    return render(request, "pets/pet_list.html", context)
