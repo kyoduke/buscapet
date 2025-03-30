@@ -1,4 +1,6 @@
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.urls import reverse
 from pets.forms import LostPetForm
 from pets.models import LostPet
 
@@ -11,6 +13,10 @@ def create_pet(request):
             instance = form.save(commit=False)
             instance.created_by = request.user
             instance.save()
+            if request.htmx:
+                response = HttpResponse()
+                response["HX-Location"] = reverse("pets:pet_list")
+                return response
             return render(request, "pets/pet_list.html")
         if request.htmx:
             return render(request, "pets/partials/form.html", {"form": form})
@@ -19,5 +25,5 @@ def create_pet(request):
 
 def list_pet(request):
     pets = LostPet.objects.all()
-    context = { "pets": pets}
+    context = {"pets": pets}
     return render(request, "pets/pet_list.html", context)

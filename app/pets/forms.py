@@ -9,4 +9,3 @@ class LostPetForm(forms.ModelForm):
             "created_by",
             "owner",
         )
-

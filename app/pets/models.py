@@ -18,15 +18,29 @@ class LostPet(models.Model):
         LOST = 0, _("Lost")
         FOUND = 1, _("Found")
 
-    status = models.SmallIntegerField(choices=PetStatus, default=PetStatus.LOST, verbose_name=_("status"))
-
-    name = models.CharField(max_length=100, null=True, default=_("Unknown"), verbose_name=_("name"))
-    owner = models.ForeignKey(
-        "users.User", on_delete=models.PROTECT, related_name="pets", null=True, verbose_name=_("owner")
+    status = models.SmallIntegerField(
+        choices=PetStatus, default=PetStatus.LOST, verbose_name=_("status")
     )
-    species = models.SmallIntegerField(choices=PetSpecies, default=PetSpecies.OTHER, verbose_name=_("species"))
-    predominant_color = models.CharField(max_length=50, null=True, verbose_name=_("predominant color"))
-    gender = models.SmallIntegerField(choices=PetGender, default=PetGender.UNKNOWN, verbose_name=_("gender"))
+
+    name = models.CharField(
+        max_length=100, null=True, default=_("Unknown"), verbose_name=_("name")
+    )
+    owner = models.ForeignKey(
+        "users.User",
+        on_delete=models.PROTECT,
+        related_name="pets",
+        null=True,
+        verbose_name=_("owner"),
+    )
+    species = models.SmallIntegerField(
+        choices=PetSpecies, default=PetSpecies.OTHER, verbose_name=_("species")
+    )
+    predominant_color = models.CharField(
+        max_length=50, null=True, verbose_name=_("predominant color")
+    )
+    gender = models.SmallIntegerField(
+        choices=PetGender, default=PetGender.UNKNOWN, verbose_name=_("gender")
+    )
 
     description = models.TextField(null=True, verbose_name=_("description"))
 
@@ -40,6 +54,7 @@ class LostPet(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(null=True, editable=False)
+
 
 # TODO: IMPORTANT! User identifier like phone number (WhatsApp)
 
