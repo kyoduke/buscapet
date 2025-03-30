@@ -1,0 +1,35 @@
+services:
+  web:
+    container_name: buscapet_web_prod
+    build:
+      context: .
+      dockerfile: ./docker/web/Prod.Dockerfile
+    env_file:
+      - './env_files/.env'
+    ports:
+      - "8000:8000"
+    networks:
+      - buscapet_net_prod
+    depends_on:
+      - db
+  db:
+    image: postgres:17-alpine
+    container_name: buscapet_db_prod
+    env_file:
+      - './env_files/.env'
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
+
+    networks:
+      - buscapet_net_prod
+
+volumes:
+  pg_data:
+    driver: local
+
+networks:
+  buscapet_net_prod:
+    driver: bridge

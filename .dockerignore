@@ -1,2 +1,9 @@
 .venv
+.env
+
 node_modules
+.git
+Dockerfile
+
+*/__pycache__/
+**/__pycache__/
