@@ -1,4 +1,21 @@
+# Dev Compose file for Buscapet project
+
 services:
+  web:
+    container_name: buscapet_web
+    build:
+      context: .
+      dockerfile: ./docker/web/Dev.Dockerfile
+    volumes:
+      - ./app:/buscapet/app
+    env_file:
+      - './env_files/.env'
+    ports:
+      - "8000:8000"
+    networks:
+      - buscapet_net
+    depends_on:
+      - db
   db:
     image: postgres:17-alpine
     container_name: buscapet_database

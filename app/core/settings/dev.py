@@ -5,6 +5,8 @@ INSTALLED_APPS += [
     "debug_toolbar",
 ]
 
+ALLOWED_HOSTS = ["*"]
+
 MIDDLEWARE += [
     "django_browser_reload.middleware.BrowserReloadMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
