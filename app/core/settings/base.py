@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     "tailwind.apps.TailwindConfig",
     "django_htmx",
     "widget_tweaks",
+    # Allauth
+    "allauth",
+    "allauth.account",
 ]
 
 MIDDLEWARE = [
@@ -54,7 +57,26 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
+    # Allauth Middleware
+    "allauth.account.middleware.AccountMiddleware",
 ]
+
+# Allauth Config
+
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USERNAME_REQUIRED = False
+
+LOGIN_REDIRECT_URL = "pets:pet_list"
+ACCOUNT_LOGOUT_REDIRECT_URL = "homepage"
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+# -----
 
 ROOT_URLCONF = "core.urls"
 
@@ -69,6 +91,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.request",
             ],
         },
     },
