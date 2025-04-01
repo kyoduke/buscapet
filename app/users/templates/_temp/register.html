@@ -1,0 +1,77 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <div class="bg-gradient-to-br from-green-100 via-green-200 to-green-300 min-h-screen flex items-center justify-center">
+
+        <!-- Registration Card -->
+        <div class="card w-96 bg-white shadow-xl rounded-lg">
+            <div class="card-body">
+                <h2 class="text-center text-2xl font-bold text-gray-700">Create Account</h2>
+                <p class="text-center text-gray-500 mb-4">Join Buscapet Community</p>
+
+                <!-- Registration Form -->
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <!-- First Name -->
+                    <div class="form-control mb-4">
+                        <label class="label">
+                            <span class="label-text text-gray-600">First Name</span>
+                        </label>
+                        <input type="text" name="first_name" placeholder="Enter your first name" class="input input-bordered w-full" required />
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-control mb-4">
+                        <label class="label">
+                            <span class="label-text text-gray-600">Last Name</span>
+                        </label>
+                        <input type="text" name="last_name" placeholder="Enter your last name" class="input input-bordered w-full" />
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-control mb-4">
+                        <label class="label">
+                            <span class="label-text text-gray-600">Email Address</span>
+                        </label>
+                        <input type="email" name="email" placeholder="Enter your email" class="input input-bordered w-full" required />
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-control mb-4">
+                        <label class="label">
+                            <span class="label-text text-gray-600">Password</span>
+                        </label>
+                        <input type="password" name="password" placeholder="Enter your password" class="input input-bordered w-full" required />
+                    </div>
+
+                    <!-- Password Confirmation -->
+                    <div class="form-control mb-4">
+                        <label class="label">
+                            <span class="label-text text-gray-600">Confirm Password</span>
+                        </label>
+                        <input type="password" name="password_confirmation" placeholder="Confirm your password" class="input input-bordered w-full" required />
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary w-full">Register</button>
+                </form>
+
+                <!-- Divider -->
+                <div class="divider my-6">OR</div>
+
+                <!-- Social Login Buttons -->
+                <button class="btn btn-outline btn-accent w-full mb-2">
+                    Register with Google
+                </button>
+
+                <!-- Login Link -->
+                <p class="text-center text-sm text-gray-500 mt-6">
+                    Already have an account?
+                    <a href="{% url 'users:login' %}" class="text-indigo-500 hover:underline">Login here</a>.
+                </p>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

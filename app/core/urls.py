@@ -23,7 +23,9 @@ from django.urls import include, path
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("pets/", include("pets.urls")),
-    path("accounts/", include("allauth.urls")),  # Allauth
+
+    # path("accounts/", include("allauth.urls")),  # Allauth
+    path("accounts/", include("users.urls")),  # Allauth
     path("", views.homepage, name="homepage"),
 ]
 
