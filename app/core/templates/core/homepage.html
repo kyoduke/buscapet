@@ -1,5 +1,77 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-    <div class="w-screen bg-purple-500">i</div>
+    <div class="bg-white text-gray-800">
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-green-500 to-green-600 text-white text-center py-20 px-4">
+      <h2 class="text-5xl font-bold">Ajude um pet a voltar pra casa 🐾</h2>
+      <p class="mt-6 text-xl max-w-2xl mx-auto">
+        O <strong>BuscaPet</strong> conecta pessoas que perderam seus animais com quem os encontrou.
+        Cadastre um pet perdido ou veja animais encontrados perto de você.
+      </p>
+      <a href="{% url 'pets:pet_create' %}" class="mt-8 inline-block bg-white text-green-600 font-bold px-6 py-3 rounded-full shadow hover:bg-green-100 transition">
+        Cadastre um animal
+      </a>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="py-20 bg-gray-50 text-center px-6" id="como-funciona">
+      <h2 class="text-4xl font-bold text-green-600 mb-12">Como funciona</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div class="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition">
+          <div class="text-green-600 mb-4 text-5xl">📤</div>
+          <h3 class="text-2xl font-semibold mb-2">Cadastre um animal perdido</h3>
+          <p class="text-gray-600">Preencha as informações do pet, como nome, foto e local onde foi visto pela última vez.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition">
+          <div class="text-green-600 mb-4 text-5xl">📸</div>
+          <h3 class="text-2xl font-semibold mb-2">Compartilhe animais encontrados</h3>
+          <p class="text-gray-600">Achou um bichinho na rua? Poste uma foto e ajude os tutores a localizarem.</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition">
+          <div class="text-green-600 mb-4 text-5xl">🗺️</div>
+          <h3 class="text-2xl font-semibold mb-2">Veja no mapa</h3>
+          <p class="text-gray-600">Acesse o mapa com pets perdidos ou encontrados perto da sua região.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pets Recentes -->
+    <section class="py-20 bg-white text-center px-6" id="pets">
+      <h2 class="text-4xl font-bold text-green-600 mb-12">Pets recentes</h2>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+        <div class="bg-gray-50 rounded-xl shadow hover:shadow-lg transition p-4 text-left">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-U325dCsKLashd3JUthcW9u4Z4oEZEXKEzA&s" alt="Pet 1" class="w-full h-48 object-cover rounded-lg mb-4" />
+          <h3 class="text-xl font-semibold text-green-700">Cachorro perdido</h3>
+          <p class="text-gray-600 text-sm mb-2">📍 Bairro Centro - Maricá RJ</p>
+          <p class="text-gray-500 text-sm">📅 12/04/2025</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl shadow hover:shadow-lg transition p-4 text-left">
+          <img src="https://www.jornaldafranca.com.br/wp-content/uploads/2022/11/gato-na-rua-freepik-scaled.jpg" alt="Pet 2" class="w-full h-48 object-cover rounded-lg mb-4" />
+          <h3 class="text-xl font-semibold text-green-700">Gato encontrado</h3>
+          <p class="text-gray-600 text-sm mb-2">📍 Itaipuaçu - Maricá RJ</p>
+          <p class="text-gray-500 text-sm">📅 10/04/2025</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl shadow hover:shadow-lg transition p-4 text-left">
+          <img src="https://ufmg.br/thumbor/2ctDMPV7m_Q0kFCRNWlq0514FUM=/0x0:5208x3482/712x474/https://ufmg.br/storage/8/b/3/f/8b3f6b9ada3276d204a7721ddffb5489_15441281629578_2103214532.jpg" alt="Pet 3" class="w-full h-48 object-cover rounded-lg mb-4" />
+          <h3 class="text-xl font-semibold text-green-700">Papagaio perdido</h3>
+          <p class="text-gray-600 text-sm mb-2">📍 São José de Imbassaí - Maricá RJ</p>
+          <p class="text-gray-500 text-sm">📅 09/04/2025</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-600 text-white py-4">
+      <div class="max-w-6xl mx-auto px-6 flex flex-col items-center text-center">
+        <h2 class="text-xl font-bold">BuscaPet</h2>
+        <p class="text-sm mb-3">Unindo corações, reencontrando patinhas perdidas 🐾</p>
+
+
+        <!-- Copyright -->
+        <p class="text-xs text-gray-100">&copy; 2025 BuscaPet. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </div>
 {% endblock content %}

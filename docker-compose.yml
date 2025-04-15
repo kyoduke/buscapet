@@ -11,7 +11,7 @@ services:
     env_file:
       - './env_files/.env'
     ports:
-      - "80:80"
+      - "8000:8000"
     networks:
       - buscapet_net
     depends_on:
