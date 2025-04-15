@@ -3,15 +3,23 @@ from django.shortcuts import render
 from django.urls import reverse
 from pets.forms import LostPetForm
 from pets.models import LostPet
+from users.models import User
 
 
 def create_pet(request):
+
+    # TODO: remover essa gambiarra que foi usada para apresentação
+    # o objetivo da gambiarra é permitir a criação de um post sem estar logado
+    user = request.user
+    if user.is_anonymous:
+        user = User.objects.all().first()
+    # fim da gambiarra
     form = LostPetForm()
     if request.method == "POST":
         form = LostPetForm(request.POST)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.created_by = request.user
+            instance.created_by = user
             instance.save()
             if request.htmx:
                 response = HttpResponse()
