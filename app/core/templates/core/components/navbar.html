@@ -2,10 +2,11 @@
 {# TEMPORARY NAVBAR, EDIT WHEN READY #}
 <div class="navbar bg-base-100 shadow-sm">
     <div class="navbar-start">
-        <a hx-boost="true" href="{% url 'pets:pet_list' %}" class="btn btn-ghost text-xl">BuscaPet</a> {# TODO: Change url to landing page #}
+        <a hx-boost="true" href="{% url 'homepage' %}" class="btn btn-ghost text-xl">BuscaPet</a> {# TODO: Change url to landing page #}
     </div>
     <div class="navbar-center">
         <a hx-boost="true" href="{% url 'pets:pet_create' %}" class="btn btn-ghost text-lg">{% translate 'Report Pet' %}</a>
+        <a hx-boost="true" href="{% url 'pets:pet_list' %}" class="btn btn-ghost text-lg">{% translate 'Missing Pets' %}</a>
     </div>
     <div class="navbar-end">
         {% if user.is_authenticated %}
