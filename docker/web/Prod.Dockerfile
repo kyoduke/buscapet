@@ -19,8 +19,8 @@ WORKDIR /buscapet
 
 RUN ["uv", "sync"]
 
-EXPOSE 8000
+EXPOSE 80
 
 RUN ["chmod", "+x", "/buscapet/scripts/entrypoint.prod.sh"]
 
-ENTRYPOINT ["sh", "/buscapet/scripts/entrypoint.prod.sh"]
+ENTRYPOINT ["./buscapet/scripts/entrypoint.sh", "prod"]

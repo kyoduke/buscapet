@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import LostPet
+from .models import PetPost
 
 
-@admin.register(LostPet)
+@admin.register(PetPost)
 class PetAdmin(admin.ModelAdmin):
     pass

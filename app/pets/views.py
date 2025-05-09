@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 from pets.forms import LostPetForm
-from pets.models import LostPet
+from pets.models import PetPost
 
 
 def create_pet(request):
@@ -24,6 +24,6 @@ def create_pet(request):
 
 
 def list_pet(request):
-    pets = LostPet.objects.all()
+    pets = PetPost.objects.all()
     context = {"pets": pets}
     return render(request, "pets/pet_list.html", context)
